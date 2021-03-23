@@ -105,4 +105,7 @@ def _create_primitive_field_schema(field):
     if field.has_default:
         schema["default"] = field._default
 
+    if field.extra_config:
+        schema.update(field.extra_config)
+
     return schema
