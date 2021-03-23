@@ -27,7 +27,8 @@ class BaseField(object):
             help_text=None,
             validators=None,
             default=NotSet,
-            name=None):
+            name=None,
+            **extra_config):
         self.memory = WeakKeyDictionary()
         self.required = required
         self.help_text = help_text
@@ -38,6 +39,7 @@ class BaseField(object):
         if default is not NotSet:
             self.validate(default)
         self._default = default
+        self.extra_config = extra_config
 
     @property
     def has_default(self):
